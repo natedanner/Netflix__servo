@@ -160,7 +160,7 @@ public final class MonitorConfig {
    */
   private MonitorConfig(Builder builder) {
     this.name = Preconditions.checkNotNull(builder.name, "name");
-    this.tags = (builder.tagsBuilder.isEmpty())
+    this.tags = builder.tagsBuilder.isEmpty()
         ? BasicTagList.EMPTY
         : new BasicTagList(builder.tagsBuilder.result());
     this.policy = builder.policy;

@@ -151,7 +151,7 @@ public class ApacheStatusPoller extends BaseMetricPoller {
       final double value = Double.parseDouble(m.group(2));
 
 
-      final Tag metricType = (name.startsWith("Total") || name.startsWith("Uptime"))
+      final Tag metricType = name.startsWith("Total") || name.startsWith("Uptime")
           ? DataSourceType.COUNTER : DataSourceType.GAUGE;
       final MonitorConfig monitorConfig = MonitorConfig.builder(name)
           .withTag(metricType)

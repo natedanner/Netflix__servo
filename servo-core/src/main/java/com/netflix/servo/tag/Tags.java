@@ -53,7 +53,7 @@ public final class Tags {
    * ensure the equality will work as expected.
    */
   static Tag internCustom(Tag t) {
-    return (t instanceof BasicTag) ? t : newTag(t.getKey(), t.getValue());
+    return t instanceof BasicTag ? t : newTag(t.getKey(), t.getValue());
   }
 
   /**

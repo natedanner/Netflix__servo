@@ -84,7 +84,7 @@ public final class Metric {
    * Returns true if the value for this metric is numeric.
    */
   public boolean hasNumberValue() {
-    return (value instanceof Number);
+    return value instanceof Number;
   }
 
   /**

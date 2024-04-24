@@ -394,7 +394,7 @@ public class SpectatorIntegrationTest {
 
   public static class AnnotateExample {
 
-    private long count = 0;
+    private long count;
 
     private final BasicCounter c = new BasicCounter(CONFIG);
 
@@ -486,7 +486,7 @@ public class SpectatorIntegrationTest {
   public static class CustomCounter implements com.netflix.servo.monitor.Monitor<Long> {
 
     private final MonitorConfig config = CONFIG.withAdditionalTag(DataSourceType.COUNTER);
-    private long value = 0L;
+    private long value;
 
     public void increment() {
       ++value;

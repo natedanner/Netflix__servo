@@ -161,7 +161,7 @@ class MonitorMBean implements DynamicMBean {
   }
 
   private MBeanAttributeInfo createAttributeInfo(Monitor<?> m) {
-    final String type = (m instanceof NumericMonitor<?>)
+    final String type = m instanceof NumericMonitor<?>
         ? Number.class.getName()
         : String.class.getName();
     return new MBeanAttributeInfo(

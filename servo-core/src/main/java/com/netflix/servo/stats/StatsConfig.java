@@ -41,11 +41,11 @@ public final class StatsConfig {
   public static class Builder {
     private boolean publishCount = true;
     private boolean publishTotal = true;
-    private boolean publishMin = false;
-    private boolean publishMax = false;
-    private boolean publishMean = false;
-    private boolean publishVariance = false;
-    private boolean publishStdDev = false;
+    private boolean publishMin;
+    private boolean publishMax;
+    private boolean publishMean;
+    private boolean publishVariance;
+    private boolean publishStdDev;
     private int sampleSize = Integer.parseInt(System.getProperty(SIZE_PROP, "1000"));
     private long frequencyMillis = Long.parseLong(System.getProperty(FREQ_PROP, "60000"));
 
@@ -297,7 +297,7 @@ public final class StatsConfig {
    */
   @Override
   public int hashCode() {
-    int result = (publishCount ? 1 : 0);
+    int result = publishCount ? 1 : 0;
     result = 31 * result + (publishTotal ? 1 : 0);
     result = 31 * result + (publishMin ? 1 : 0);
     result = 31 * result + (publishMax ? 1 : 0);

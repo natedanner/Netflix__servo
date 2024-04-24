@@ -38,7 +38,7 @@ public final class Memoizer<T> {
     return new Memoizer<>(getter, duration, unit);
   }
 
-  private volatile long whenItExpires = 0L;
+  private volatile long whenItExpires;
   private volatile T value;
   private final Callable<T> getter;
   private final long durationNanos;

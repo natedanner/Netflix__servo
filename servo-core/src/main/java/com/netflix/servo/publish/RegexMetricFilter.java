@@ -61,7 +61,7 @@ public final class RegexMetricFilter implements MetricFilter {
       value = name;
     } else {
       Tag t = tags.getTag(tagKey);
-      value = (t == null) ? null : t.getValue();
+      value = t == null ? null : t.getValue();
     }
 
     boolean match = matchIfMissingTag;

@@ -62,7 +62,7 @@ public final class PrefixMetricFilter implements MetricFilter {
       value = name;
     } else {
       Tag t = tags.getTag(tagKey);
-      value = (t == null) ? null : t.getValue();
+      value = t == null ? null : t.getValue();
     }
 
     if (Strings.isNullOrEmpty(value)) {

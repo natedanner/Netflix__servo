@@ -43,7 +43,7 @@ public final class AsyncMetricObserver extends BaseMetricObserver {
   private final long expireTime;
   private final BlockingQueue<TimestampedUpdate> updateQueue;
 
-  private volatile boolean stopUpdateThread = false;
+  private volatile boolean stopUpdateThread;
 
   private final Thread processingThread;
 

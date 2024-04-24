@@ -169,7 +169,7 @@ public final class JmxMetricPoller implements MetricPoller {
    */
   private void extractValues(String path, Map<String, Object> values, CompositeData obj) {
     for (String key : obj.getCompositeType().keySet()) {
-      String newPath = (path == null) ? key : path + "." + key;
+      String newPath = path == null ? key : path + "." + key;
       Object value = obj.get(key);
       if (value instanceof CompositeData) {
         extractValues(newPath, values, (CompositeData) value);
@@ -209,7 +209,7 @@ public final class JmxMetricPoller implements MetricPoller {
       Object obj = attr.getValue();
       if (obj instanceof TabularData) {
         ((TabularData) obj).values().stream()
-            .filter(key -> key instanceof CompositeData)
+            .filter(CompositeData.class::isInstance)
             .forEach(key -> addTabularMetrics(filter, metrics, tags, attrName,
                 (CompositeData) key));
       } else if (obj instanceof CompositeData) {
@@ -259,7 +259,7 @@ public final class JmxMetricPoller implements MetricPoller {
     } else if (value instanceof Number) {
       num = (Number) value;
     } else if (value instanceof Boolean) {
-      num = ((Boolean) value) ? 1 : 0;
+      num = (Boolean) value ? 1 : 0;
     }
     return num;
   }

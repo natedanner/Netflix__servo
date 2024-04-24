@@ -30,9 +30,9 @@ public class SocketReceiverTester implements Runnable {
 
   private final String[] lines = new String[100];
   private volatile boolean running = true;
-  private volatile boolean connected = false;
-  private volatile int linesRead = 0;
-  private volatile int linesWritten = 0;
+  private volatile boolean connected;
+  private volatile int linesRead;
+  private volatile int linesWritten;
 
   public SocketReceiverTester(int port) throws IOException {
     ServerSocketFactory socketFactory = ServerSocketFactory.getDefault();

@@ -78,7 +78,7 @@ public final class Main {
   private static TagList getCommonTags() {
     final Map<String, String> tags = new HashMap<>();
     final String cluster = System.getenv("NETFLIX_CLUSTER");
-    tags.put(CLUSTER, (cluster == null) ? UNKNOWN : cluster);
+    tags.put(CLUSTER, cluster == null ? UNKNOWN : cluster);
     try {
       tags.put(NODE, InetAddress.getLocalHost().getHostName());
     } catch (UnknownHostException e) {

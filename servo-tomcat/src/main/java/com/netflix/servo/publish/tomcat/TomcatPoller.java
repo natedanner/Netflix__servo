@@ -112,7 +112,7 @@ public class TomcatPoller extends BaseMetricPoller {
       AttributeList list = mbs.getAttributes(name, GLOBAL_REQ_ATTRS);
       for (Attribute a : list.asList()) {
         // the only gauge here is maxTime
-        addMetric(metrics, a.getName().equals("maxTime")
+        addMetric(metrics, "maxTime".equals(a.getName())
             ? toGauge(now, name, a)
             : toCounter(now, name, a));
       }
@@ -132,7 +132,7 @@ public class TomcatPoller extends BaseMetricPoller {
       // determine whether the shared threadPool is used
       boolean isUsed = true;
       for (Attribute a : list.asList()) {
-        if (a.getName().equals("maxThreads")) {
+        if ("maxThreads".equals(a.getName())) {
           Number v = (Number) a.getValue();
           isUsed = v.doubleValue() >= 0.0;
           break;
@@ -159,7 +159,7 @@ public class TomcatPoller extends BaseMetricPoller {
     for (ObjectName name : names) {
       AttributeList list = mbs.getAttributes(name, EXECUTOR_ATTRS);
       for (Attribute a : list.asList()) {
-        addMetric(metrics, a.getName().equals("completedTaskCount")
+        addMetric(metrics, "completedTaskCount".equals(a.getName())
             ? toCounter(now, name, a)
             : toGauge(now, name, a));
       }

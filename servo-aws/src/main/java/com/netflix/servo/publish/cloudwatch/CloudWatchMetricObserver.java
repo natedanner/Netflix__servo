@@ -97,7 +97,7 @@ public class CloudWatchMetricObserver extends BaseMetricObserver {
   }
 
   private int batchSize;
-  private boolean truncateEnabled = false;
+  private boolean truncateEnabled;
 
   private final AmazonCloudWatch cloudWatch;
   private final String cloudWatchNamespace;
@@ -252,7 +252,7 @@ public class CloudWatchMetricObserver extends BaseMetricObserver {
       if (Double.isNaN(doubleValue)) {
         doubleValue = 0.0;
       } else if (exponent >= MAX_EXPONENT) {
-        doubleValue = (doubleValue < 0.0) ? -MAX_VALUE : MAX_VALUE;
+        doubleValue = doubleValue < 0.0 ? -MAX_VALUE : MAX_VALUE;
       } else if (exponent <= MIN_EXPONENT) {
         doubleValue = 0.0;
       }

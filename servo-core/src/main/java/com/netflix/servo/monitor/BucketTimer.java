@@ -212,7 +212,7 @@ public class BucketTimer extends AbstractMonitor<Long>
   @Override
   public Long getValue(int pollerIndex) {
     final long cnt = getCount(pollerIndex);
-    return (cnt == 0) ? 0L : totalTime.getValue().longValue() / cnt;
+    return cnt == 0 ? 0L : totalTime.getValue().longValue() / cnt;
   }
 
   /**

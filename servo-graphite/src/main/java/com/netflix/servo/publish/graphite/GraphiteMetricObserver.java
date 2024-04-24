@@ -46,7 +46,7 @@ public class GraphiteMetricObserver extends BaseMetricObserver {
   private final String serverPrefix;
   private final SocketFactory socketFactory = SocketFactory.getDefault();
   private final URI graphiteServerURI;
-  private Socket socket = null;
+  private Socket socket;
 
   /**
    * Creates a new instance.

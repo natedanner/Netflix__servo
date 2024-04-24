@@ -95,7 +95,7 @@ public class JmxMetricPollerTest {
           new ObjectName("com.netflix.servo.test:*"),
           MATCH_ALL);
 
-      List<Metric> metrics = poller.poll(config -> config.getName().equals("Count"));
+      List<Metric> metrics = poller.poll(config -> "Count".equals(config.getName()));
       assertEquals(metrics.size(), 2);
       Map<String, Integer> values = new HashMap<>();
       for (Metric m : metrics) {
@@ -173,7 +173,7 @@ public class JmxMetricPollerTest {
           false,
           null);
 
-      List<Metric> metrics = poller.poll(config -> config.getName().equals("StringValue"));
+      List<Metric> metrics = poller.poll(config -> "StringValue".equals(config.getName()));
       assertEquals(metrics.size(), 1);
       assertEquals(metrics.get(0).getValue(), "AStringResult");
     } finally {

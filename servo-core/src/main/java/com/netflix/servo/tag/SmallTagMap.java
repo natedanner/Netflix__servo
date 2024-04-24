@@ -55,7 +55,7 @@ public class SmallTagMap implements Iterable<Tag> {
    * Helper class to build the immutable map.
    */
   public static class Builder {
-    private int actualSize = 0;
+    private int actualSize;
     private int size;
     private Object[] buf;
 
@@ -174,7 +174,7 @@ public class SmallTagMap implements Iterable<Tag> {
   }
 
   private class SmallTagIterator implements Iterator<Tag> {
-    private int i = 0;
+    private int i;
 
     @Override
     public boolean hasNext() {
@@ -201,7 +201,7 @@ public class SmallTagMap implements Iterable<Tag> {
     return new SmallTagIterator();
   }
 
-  private int cachedHashCode = 0;
+  private int cachedHashCode;
   private final Tag[] tagArray;
 
   /**

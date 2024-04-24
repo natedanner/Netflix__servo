@@ -115,7 +115,7 @@ public final class SortedTagList implements TagList {
    */
   public String getValue(String key) {
     final Tag t = tagSortedMap.get(key);
-    return (t == null) ? null : t.getValue();
+    return t == null ? null : t.getValue();
   }
 
   /**

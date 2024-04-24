@@ -46,7 +46,7 @@ public final class BucketConfig {
    */
   public static class Builder {
     private TimeUnit timeUnit = TimeUnit.MILLISECONDS;
-    private long[] buckets = null;
+    private long[] buckets;
 
     /**
      * Sets the timeUnit for the buckets.

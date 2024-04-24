@@ -69,7 +69,7 @@ public final class BasicTagList implements TagList {
    */
   public String getValue(String key) {
     final Tag t = tagMap.get(key);
-    return (t == null) ? null : t.getValue();
+    return t == null ? null : t.getValue();
   }
 
   /**

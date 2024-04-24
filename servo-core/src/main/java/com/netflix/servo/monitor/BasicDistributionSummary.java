@@ -54,7 +54,7 @@ public class BasicDistributionSummary
     max = new MaxGauge(config.withAdditionalTag(STAT_MAX));
     min = new MinGauge(config.withAdditionalTag(STAT_MIN));
 
-    monitors = UnmodifiableList.<Monitor<?>>of(totalAmount, count, max, min);
+    monitors = UnmodifiableList.of(totalAmount, count, max, min);
   }
 
   /**
@@ -85,7 +85,7 @@ public class BasicDistributionSummary
     final long cnt = count.getCurrentCount(pollerIndex);
     final long total = totalAmount.getCurrentCount(pollerIndex);
     final long value = (long) ((double) total / cnt);
-    return (cnt == 0) ? 0L : value;
+    return cnt == 0 ? 0L : value;
   }
 
   /**

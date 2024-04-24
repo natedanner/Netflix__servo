@@ -355,7 +355,7 @@ public class JvmMetricPoller implements MetricPoller {
         threadInfo,
         (a, b) -> {
           long diff = b.getThreadId() - a.getThreadId();
-          return ((diff == 0L) ? 0 : (diff < 0L) ? -1 : 1);
+          return diff == 0L ? 0 : diff < 0L ? -1 : 1;
         }
     );
     long[] stateCounts = new long[VALID_STATES.length];

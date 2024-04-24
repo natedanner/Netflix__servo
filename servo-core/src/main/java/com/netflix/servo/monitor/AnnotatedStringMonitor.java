@@ -51,7 +51,7 @@ class AnnotatedStringMonitor extends AbstractMonitor<String> {
     } catch (Exception e) {
       throw Throwables.propagate(e);
     }
-    return (v == null) ? null : v.toString();
+    return v == null ? null : v.toString();
   }
 
   /**

@@ -127,6 +127,6 @@ public abstract class AbstractContextualMonitor<T, M extends Monitor<T>>
    */
   @Override
   public List<Monitor<?>> getMonitors() {
-    return UnmodifiableList.<Monitor<?>>copyOf(monitors.values());
+    return UnmodifiableList.copyOf(monitors.values());
   }
 }

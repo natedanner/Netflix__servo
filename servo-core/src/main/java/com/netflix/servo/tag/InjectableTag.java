@@ -68,11 +68,11 @@ public enum InjectableTag implements Tag {
   }
 
   private static String getHostName() {
-    return (loadAddress() != null) ? loadAddress().getHostName() : "unkownHost";
+    return loadAddress() != null ? loadAddress().getHostName() : "unkownHost";
   }
 
   private static String getIp() {
-    return (loadAddress() != null) ? loadAddress().getHostAddress() : "unknownHost";
+    return loadAddress() != null ? loadAddress().getHostAddress() : "unknownHost";
   }
 
   private static InetAddress loadAddress() {

@@ -82,7 +82,7 @@ public class ValidCharactersTest {
     assertEquals(fixed, expected);
   }
 
-  private static JsonFactory factory = new JsonFactory();
+  private static final JsonFactory factory = new JsonFactory();
   static {
     factory.enable(JsonGenerator.Feature.AUTO_CLOSE_TARGET);
   }

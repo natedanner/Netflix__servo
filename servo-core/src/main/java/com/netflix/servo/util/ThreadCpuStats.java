@@ -101,7 +101,7 @@ public final class ThreadCpuStats {
    */
   public static final String THREADS = "threads";
 
-  private volatile boolean running = false;
+  private volatile boolean running;
 
   private final CpuUsage jvmCpuUsage = new CpuUsage(-1, "jvm");
 
@@ -164,7 +164,7 @@ public final class ThreadCpuStats {
    * Helper function for computing percentage.
    */
   public static double toPercent(long value, long total) {
-    return (total > 0) ? 100.0 * value / total : 0.0;
+    return total > 0 ? 100.0 * value / total : 0.0;
   }
 
   private static long append(StringBuilder buf, char label, long unit, long time) {
@@ -381,7 +381,7 @@ public final class ThreadCpuStats {
       try {
         final Method m = osBean.getClass().getMethod("getProcessCpuTime");
         final long jvmCpuTime = (Long) m.invoke(osBean);
-        jvmCpuUsage.update((jvmCpuTime < 0) ? totalCpuTime : jvmCpuTime);
+        jvmCpuUsage.update(jvmCpuTime < 0 ? totalCpuTime : jvmCpuTime);
       } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
         jvmCpuUsage.update(totalCpuTime);
       }
@@ -422,7 +422,7 @@ public final class ThreadCpuStats {
             LOGGER.warn("update stats is slow, took {} milliseconds", elapsed);
           }
           long delay = step - elapsed;
-          Thread.sleep((delay < 1000L) ? step : delay);
+          Thread.sleep(delay < 1000L ? step : delay);
         } catch (Exception e) {
           LOGGER.warn("failed to update thread stats", e);
         }
@@ -506,7 +506,7 @@ public final class ThreadCpuStats {
     }
 
     private int toIndex(int v) {
-      return ((v < 0) ? v + BUFFER_SIZE : v) % BUFFER_SIZE;
+      return (v < 0 ? v + BUFFER_SIZE : v) % BUFFER_SIZE;
     }
 
     private long get(int n) {
@@ -515,7 +515,7 @@ public final class ThreadCpuStats {
       final long currentValue = totals.get(currentPos);
       final long startValue = totals.get(startPos);
       final long diff = currentValue - startValue;
-      return (diff < 0L) ? 0L : diff;
+      return diff < 0L ? 0L : diff;
     }
 
     private void update(long threadTotal) {
@@ -582,7 +582,7 @@ public final class ThreadCpuStats {
           cmp = u2.getOverall() - u1.getOverall();
           break;
       }
-      return (cmp < 0) ? -1 : ((cmp > 0) ? 1 : 0);
+      return cmp < 0 ? -1 : (cmp > 0 ? 1 : 0);
     }
   }
 }

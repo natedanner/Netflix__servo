@@ -153,7 +153,7 @@ public final class Monitors {
     addMonitors(monitors, id, tags, obj);
 
     final Class<?> c = obj.getClass();
-    final String objectId = (id == null) ? DEFAULT_ID : id;
+    final String objectId = id == null ? DEFAULT_ID : id;
     return new BasicCompositeMonitor(newObjectConfig(c, objectId, tags), monitors);
   }
 

@@ -120,7 +120,7 @@ public class BucketTimerTest extends AbstractMonitorTest<BucketTimer> {
         MonitorConfig.builder("foo").build(),
         new BucketConfig.Builder().withBuckets(new long[]{10000L, 20000L}).withTimeUnit(TimeUnit.NANOSECONDS).build(),
         TimeUnit.MICROSECONDS
-    );;
+    );
     Map<String, Number> expectedValues;
 
     expectedValues = new HashMap<>();

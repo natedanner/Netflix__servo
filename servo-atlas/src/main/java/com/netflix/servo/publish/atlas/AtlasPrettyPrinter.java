@@ -24,7 +24,7 @@ import java.io.IOException;
  * A simple Jackson Pretty Printer that helps dump atlas payloads in a format that is easy to grep.
  */
 class AtlasPrettyPrinter implements PrettyPrinter {
-  private int nesting = 0;
+  private int nesting;
 
   @Override
   public void writeRootValueSeparator(JsonGenerator jg) throws IOException {

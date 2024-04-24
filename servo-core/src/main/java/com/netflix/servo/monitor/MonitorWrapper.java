@@ -25,7 +25,7 @@ class MonitorWrapper<T> extends AbstractMonitor<T> {
   @SuppressWarnings("unchecked")
   static <T> MonitorWrapper<T> create(TagList tags, Monitor<T> monitor) {
     if (monitor instanceof NumericMonitor<?>) {
-      return (MonitorWrapper<T>) ((monitor instanceof SpectatorMonitor)
+      return (MonitorWrapper<T>) (monitor instanceof SpectatorMonitor
           ? new SpectatorMonitorWrapper(tags, (NumericMonitor<?>) monitor)
           : new NumericMonitorWrapper(tags, (NumericMonitor<?>) monitor));
     } else {

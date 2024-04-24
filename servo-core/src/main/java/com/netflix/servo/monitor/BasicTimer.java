@@ -73,7 +73,7 @@ public class BasicTimer extends AbstractMonitor<Long>
     totalOfSquares = new DoubleCounter(unitConfig.withAdditionalTag(STAT_TOTAL_SQ), clock);
     max = new DoubleMaxGauge(unitConfig.withAdditionalTag(STAT_MAX), clock);
 
-    monitors = UnmodifiableList.<Monitor<?>>of(totalTime, count, totalOfSquares, max);
+    monitors = UnmodifiableList.of(totalTime, count, totalOfSquares, max);
   }
 
   /**
@@ -149,7 +149,7 @@ public class BasicTimer extends AbstractMonitor<Long>
   public Long getValue(int pollerIndex) {
     final long cnt = count.getCurrentCount(pollerIndex);
     final long value = (long) (getTotal(pollerIndex) / cnt);
-    return (cnt == 0) ? 0L : value;
+    return cnt == 0 ? 0L : value;
   }
 
   /**

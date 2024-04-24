@@ -23,7 +23,7 @@ import static org.testng.Assert.assertEquals;
 
 public class ExpiringCacheTest {
   static class CountingFun implements Function<String, Integer> {
-    int numCalled = 0;
+    int numCalled;
 
     @Override
     public Integer apply(String s) {

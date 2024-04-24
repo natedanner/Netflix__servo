@@ -70,7 +70,7 @@ public final class UnmodifiableList {
    */
   public static <E> List<E> copyOf(Iterable<? extends E> elements) {
     Preconditions.checkNotNull(elements, "elements");
-    List<E> result = (elements instanceof Collection)
+    List<E> result = elements instanceof Collection
         // can pre-allocate the array
         ? new ArrayList<>(cast(elements).size())
         // cannot

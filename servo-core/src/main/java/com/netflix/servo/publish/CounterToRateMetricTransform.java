@@ -227,7 +227,7 @@ public final class CounterToRateMetricTransform implements MetricObserver {
     public double computeRate(long durationMillis, double delta) {
       final double millisPerSecond = 1000.0;
       final double duration = durationMillis / millisPerSecond;
-      return (duration <= 0.0 || delta <= 0.0) ? 0.0 : delta / duration;
+      return duration <= 0.0 || delta <= 0.0 ? 0.0 : delta / duration;
     }
   }
 }
